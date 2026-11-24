@@ -534,3 +534,10 @@ dialog.bio .talk-in h3{font-size:28px}
 .sp-grid+.sub-h{margin-top:56px}
 .dlg-dl+.note,.dlg-title+.note{margin:0 0 12px}
 .dlg-item+.dlg-item{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.sp-card .portrait.logo{background:#fff;padding:22px}
+.sp-card .portrait.logo img{object-fit:contain;object-position:center}
+.sp-card.reserved .spk-name{font-size:17px}
+.dlg-abs p{font-size:15.5px;margin:0 0 10px}
+.dlg-abs ul{margin:0 0 12px;padding-inline-start:20px;font-size:14.5px;line-height:1.55}
+.dlg-abs li{margin-bottom:6px}
+dialog.bio{max-height:88vh;overflow:auto}

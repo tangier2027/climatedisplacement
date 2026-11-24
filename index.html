@@ -97,6 +97,63 @@
       </div>
       <div class="hero-cta"><a class="btn btn-primary" href="#programme">Explore the Scientific Programme <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="#documents">Download the Conference Concept Note<span class="badge">Coming soon</span></a>
       </div>
+      <section class="cd" id="countdown" aria-labelledby="cd-title">
+        <style>
+          .cd{margin:34px 0 8px;border-top:2px solid var(--gold);border-bottom:1px solid var(--line);padding:26px 0 24px;display:grid;grid-template-columns:minmax(200px,1fr) auto;gap:18px 40px;align-items:center}
+          .cd-k{font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600;margin:0 0 8px}
+          .cd-t{font-size:clamp(22px,2.6vw,30px);line-height:1.2;margin:0 0 6px;color:var(--navy);font-weight:500}
+          .cd-s{font-family:var(--sans);font-size:14px;color:var(--slate);margin:0}
+          .cd-g{display:flex;align-items:stretch;gap:0;margin:0;padding:0;list-style:none}
+          .cd-u{min-width:94px;text-align:center;padding:4px 18px;border-inline-start:1px solid var(--line)}
+          .cd-u:first-child{border-inline-start:0}
+          .cd-n{display:block;font-size:clamp(40px,5vw,60px);line-height:1;color:var(--navy);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1,"lnum" 1;letter-spacing:-.01em}
+          .cd-l{display:block;margin-top:10px;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
+          .cd-n.tick{animation:cdTick .45s ease}
+          @keyframes cdTick{from{opacity:.35;transform:translateY(-3px)}to{opacity:1;transform:none}}
+          .cd.done .cd-g{display:none}
+          .cd .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+          @media (prefers-reduced-motion:reduce){.cd-n.tick{animation:none}}
+          @media (max-width:860px){.cd{grid-template-columns:1fr}.cd-g{justify-content:space-between}.cd-u{min-width:0;flex:1;padding:4px 6px}}
+          @media (max-width:420px){.cd-l{letter-spacing:.1em;font-size:10px}}
+        </style>
+        <div>
+          <p class="cd-k" id="cd-k">Countdown to the opening</p>
+          <h2 class="cd-t" id="cd-title">The conference opens in</h2>
+          <p class="cd-s" id="cd-s">Official Opening Ceremony · Tuesday, 19 January 2027 · 09:30 (Morocco time, GMT+1)</p>
+        </div>
+        <ol class="cd-g" aria-hidden="true">
+          <li class="cd-u"><span class="cd-n" data-u="d">--</span><span class="cd-l">Days</span></li>
+          <li class="cd-u"><span class="cd-n" data-u="h">--</span><span class="cd-l">Hours</span></li>
+          <li class="cd-u"><span class="cd-n" data-u="m">--</span><span class="cd-l">Minutes</span></li>
+          <li class="cd-u"><span class="cd-n" data-u="s">--</span><span class="cd-l">Seconds</span></li>
+        </ol>
+        <p class="sr" id="cd-sr" aria-live="polite"></p>
+        <script>
+        (function(){
+          var START=Date.UTC(2027,0,19,8,30,0), END=Date.UTC(2027,0,21,16,0,0);
+          var root=document.getElementById('countdown'); if(!root) return;
+          var el={}; root.querySelectorAll('.cd-n').forEach(function(n){el[n.getAttribute('data-u')]=n;});
+          var sr=document.getElementById('cd-sr'), lastMin=-1, timer;
+          function pad(n){return n<10?'0'+n:''+n;}
+          function set(k,v){var n=el[k]; if(n.textContent!==v){n.textContent=v;n.classList.remove('tick');void n.offsetWidth;n.classList.add('tick');}}
+          function finish(k,t,s){root.classList.add('done');document.getElementById('cd-k').textContent=k;document.getElementById('cd-title').textContent=t;document.getElementById('cd-s').textContent=s;}
+          function tick(){
+            var now=Date.now(), diff=START-now;
+            if(diff<=0){
+              clearInterval(timer);
+              if(now<END) finish('Now taking place','The conference is in progress','19–21 January 2027 · Faculty of Legal and Political Sciences of Tangier');
+              else finish('Tangier 2027','The conference has concluded','Thank you to all speakers, participants and partners.');
+              return;
+            }
+            var s=Math.floor(diff/1000), d=Math.floor(s/86400), h=Math.floor(s%86400/3600), m=Math.floor(s%3600/60), sec=s%60;
+            set('d',String(d)); set('h',pad(h)); set('m',pad(m)); set('s',pad(sec));
+            if(m!==lastMin){lastMin=m; sr.textContent=d+' days, '+h+' hours and '+m+' minutes until the opening of the conference.';}
+          }
+          tick(); timer=setInterval(tick,1000);
+          document.addEventListener('visibilitychange',function(){if(!document.hidden) tick();});
+        })();
+        </script>
+      </section>
       <div class="facts"> <div><b><span class="tm" dir="ltr">3</span></b><span>Days</span></div>
         <div><b><span class="tm" dir="ltr">4</span></b><span>Scientific themes</span>
         </div>

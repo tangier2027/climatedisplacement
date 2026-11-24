@@ -8,8 +8,8 @@ It is built like a portfolio site: **plain HTML pages that you edit directly**, 
 No framework, no build step, no database. Works on GitHub Pages and opens directly from your computer.
 
 ```
-tangier2027/
-├── index.html            The website (English for now) → https://saadzil.github.io/tangier2027/
+climatedisplacement/
+├── index.html            The website (English for now) → https://tangier2027.github.io/climatedisplacement/
 ├── assets/css/style.css  Design: colours, fonts, layout
 ├── assets/js/site.js     Interactions only (programme tabs, mobile menu, biography windows)
 ├── assets/img/logos/     Institutional logos
@@ -103,4 +103,4 @@ Loaded from Google Fonts (Cormorant Garamond, Source Serif 4, Source Sans 3).
 ## Search engines and sharing
 Title, description, canonical address, language alternates, social preview (`assets/img/og-image.png`) and Event
 structured data are in the `<head>` of each page. If the final address is different from
-`https://saadzil.github.io/tangier2027/`, replace it in both pages.
+`https://tangier2027.github.io/climatedisplacement/`, replace it in both pages.

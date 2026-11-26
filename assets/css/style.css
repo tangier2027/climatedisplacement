@@ -541,3 +541,13 @@ dialog.bio .talk-in h3{font-size:28px}
 .dlg-abs ul{margin:0 0 12px;padding-inline-start:20px;font-size:14.5px;line-height:1.55}
 .dlg-abs li{margin-bottom:6px}
 dialog.bio{max-height:88vh;overflow:auto}
+/* language switch — framed and prominent */
+.lang{border:1.5px solid var(--gold);border-radius:999px;padding:3px;gap:2px;background:#fff;box-shadow:0 2px 6px rgba(16,31,59,.08)}
+.lang .bar{display:none}
+.lang>a,.lang>span{display:inline-flex;align-items:center;justify-content:center;min-width:44px;padding:7px 14px;border-radius:999px;font-family:var(--sans);font-size:14px;font-weight:700;line-height:1;letter-spacing:.02em;text-decoration:none;border:0;transition:background .15s,color .15s}
+.lang>span[aria-current]{background:var(--navy);color:#fff}
+.lang>a{color:var(--green)}
+.lang>a:hover,.lang>a:focus-visible{background:rgba(201,166,107,.22);color:var(--navy)}
+.lang .ar{font-family:'IBM Plex Sans Arabic','DejaVu Sans',sans-serif;font-size:15px}
+@media (max-width:480px){.lang>a,.lang>span{min-width:38px;padding:6px 10px;font-size:13px}.lang .ar{font-size:14px}}
+@media (max-width:640px){.hdr-logos img.hl-cassin,.hdr-logos img.hl-cidce{display:none}.hdr-logos{min-width:0;flex-shrink:1;overflow:hidden}.hdr-right{flex-shrink:0}}
